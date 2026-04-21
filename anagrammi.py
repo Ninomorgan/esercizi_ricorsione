@@ -1,7 +1,7 @@
 import copy
 from functools import lru_cache
 
-
+################################################
 def anagrammi(parola):
     soluzioni = []
     ricorsione([], parola, soluzioni)
@@ -14,13 +14,15 @@ def ricorsione(parziale: list, rimanenti: str, soluzioni: list) -> list:
     #caso ricorsivo
     else:
         for i in range(len(rimanenti)):
-            parziale.append(rimanenti[i])
-            nuovi_rimanenti = rimanenti[:i] + rimanenti[i+1:]
+            #in parziale inzialmente vuoto dog
+            parziale.append(rimanenti[i]) #d
+            nuovi_rimanenti = rimanenti[:i] + rimanenti[i+1:] #og
             ricorsione(parziale, nuovi_rimanenti, soluzioni)
-            parziale.pop()
+            parziale.pop() #caccio d
 
 
-
+################################################
+# qua facciamo un set per eleiminaire le oparole uguali
 def anagrammi_str(parola):
     soluzioni = set()
     ricorsione_str("", parola, soluzioni)

@@ -20,6 +20,7 @@ class Fibonacci:
              + self.calcola_elemento_cache(n-2))
             return self.cache[n]
 
+    #metodo iniziale
     def calcola_elemento(self,n):
         # caso terminale
         if n ==0 :
@@ -31,6 +32,8 @@ class Fibonacci:
             self.ricorsioni += 1
             return (self.calcola_elemento(n-1) +
                     self.calcola_elemento(n-2))
+
+    #questo rappresenta il metodo di raccolta dati
     @lru_cache(maxsize=None)
     def calcola_elemento_lru(self,n):
         # caso terminale
